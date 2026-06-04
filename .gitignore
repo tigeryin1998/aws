@@ -1,0 +1,5 @@
+.venv/
+a2.env
+*.pem
+__pycache__/
+*.pyc
