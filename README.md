@@ -1,5 +1,21 @@
 # AWS Event-Driven PDF RAG Comparison App
 
+This project deploys an event-driven PDF processing web application on AWS. The application
+allows users to upload PDF files, then compares two text chunking strategies: fixed-size chunking
+and paragraph-aware chunking. The deployed architecture separates the public web request path
+from background document processing so that file uploads return quickly while workers process
+documents asynchronously. The final deployment uses a custom VPC (Virtual Private Cloud),
+public and private subnets, an internet-facing Application Load Balancer, an Auto Scaling Group
+for the web tier, a separate worker tier also managed by an Auto Scaling Group, Amazon S3 for
+PDF storage, Amazon RDS PostgreSQL for application state and processing results, and Amazon
+SNS (Simple Notification Service)/SQS (Simple Queue Service) for event-driven decoupling.
+
+![alt text](architecture.png)
+
+Given the project's temporary environment, the credential leaks in this repo is unhandled
+
+Below is the original project guidance
+
 This folder contains the  starter code for the AWS version of the PDF RAG
 comparison app. You are expected to create and connect the required AWS resources 
 yourself, then run this code on your web and worker machines.
